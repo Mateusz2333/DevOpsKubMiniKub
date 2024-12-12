@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuberapp
+  labels:
+    app: kuberapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuberapp
+  template:
+    metadata:
+      labels:
+        app: kuberapp
+    spec:
+      containers:
+        - name: kuberapp-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+
